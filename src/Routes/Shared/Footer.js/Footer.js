@@ -8,14 +8,18 @@ import { faGoogle,faFacebook,faInstagram, faLinkedin,faMobile } from '@fortaweso
 
 const Footer = () => {
 
+
 //  font awesome icons 
     const google = <FontAwesomeIcon className="fs-5 text-white" icon={faGoogle} />;
     const facebook = <FontAwesomeIcon className="fs-5 text-white" icon={faFacebook} />;
     const instagram = <FontAwesomeIcon className="fs-5 text-white" icon={faInstagram} />;
     const linkedin = <FontAwesomeIcon className="fs-5 text-white" icon={faLinkedin} />;
    
+    
+    let currentYear = new Date().getFullYear();
+
     return (
-        <div className="bg-dark mt-5 py-2">
+        <div className="bg-dark mt-5 py-4">
             <Container>
                 <Row className="text-center">
                     <Col>
@@ -56,6 +60,8 @@ const Footer = () => {
                         <p className="text-white">(102) 8888 9999</p>
                         <p className="text-white"><img className="ms-5" src={payment} /></p>
                     </Col>
+                    <hr className="w-100 text-white border border-1 mt-4" />
+                    <p className="text-white">Copyright &copy; 2021-{currentYear} Garcia. All Right Reserved.Made with ❤️ by Hasibul Polok 🔥</p>
                 </Row>
             </Container>
         </div>
