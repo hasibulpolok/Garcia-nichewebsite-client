@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import Home from './Routes/Home/Home/Home';
+import Header from './Routes/Shared/Header/Header';
+import Footer from './Routes/Shared/Footer.js/Footer';
+import Reviews from './Routes/Reviews/Reviews';
+import Login from './Routes/Members/Login/Login';
+import Register from './Routes/Members/Register/Register';
+import Products from './Routes/Home/Products/Products';
+import NotFound from './Routes/NotFound/NotFound';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <Router>
+        <Header></Header>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="/register">
+            <Register></Register>
+          </Route>
+          <Route path="/reviews">
+            <Reviews></Reviews>
+          </Route>
+          <Route path="/products">
+            <Products></Products>
+          </Route>
+          <Route exact path="*">
+            <NotFound></NotFound>
+          </Route>
+        </Switch>
+        <Footer></Footer>
+      </Router>
     </div>
   );
 }
