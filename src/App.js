@@ -7,11 +7,20 @@ import Reviews from './Routes/Reviews/Reviews';
 import Login from './Routes/Members/Login/Login';
 import Register from './Routes/Members/Register/Register';
 import Products from './Routes/Home/Products/Products';
+import Dashboard from './Routes/Dashboard/Dashboard/Dashboard';
 import NotFound from './Routes/NotFound/NotFound';
+import AddProduct from './Routes/Dashboard/AddProduct/AddProduct';
+import AllProducts from './Routes/Dashboard/AllProducts/AllProducts';
+import MyOrder from './Routes/Dashboard/MyOrders/MyOrder';
+import AllOrder from './Routes/Dashboard/AllOrders/AllOrder';
+import AuthProvider from './context/AuthProvider';
+import PrivateRoute from './Routes/Members/PrivateRoute/PrivateRoute';
+import ExploreProducts from './Routes/Home/ExploreProducts/ExploreProducts';
+
 
 function App() {
   return (
-    <div >
+    <AuthProvider>
       <Router>
         <Header></Header>
         <Switch>
@@ -33,13 +42,32 @@ function App() {
           <Route path="/products">
             <Products></Products>
           </Route>
+          <Route path="/exploreproducts">
+           <ExploreProducts></ExploreProducts>
+          </Route>
+          <PrivateRoute path="/dashboard">
+            <Dashboard></Dashboard>
+          </PrivateRoute>
+          <Route path="/addproducts">
+            <AddProduct></AddProduct>
+          </Route>
+          <Route path="/allproducts">
+            <AllProducts></AllProducts>
+          </Route>
+          <PrivateRoute path="/myorders">
+            <MyOrder></MyOrder>
+          </PrivateRoute>
+          <Route path="/allorders">
+            <AllOrder></AllOrder>
+          </Route>
           <Route exact path="*">
             <NotFound></NotFound>
           </Route>
         </Switch>
         <Footer></Footer>
       </Router>
-    </div>
+      </AuthProvider>
+  
   );
 }
 

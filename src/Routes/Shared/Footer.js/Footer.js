@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import payment from '../../../img/payment.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle,faFacebook,faInstagram, faLinkedin,faMobile } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle,faFacebook,faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 
 
@@ -28,10 +28,10 @@ const Footer = () => {
                         <h4 className="text-white "> Follow us</h4>
                         <div className=" w-100 text-center">
                             <div className=" d-flex ms-4">
-                          <p  className="ms-5"><a href="https://google.com" target="_blank"> {google}</a></p>
-                          <p className="ms-2"><a href="https://facebook.com" target="_blank"> {facebook}</a></p>
-                          <p className="ms-2"><a href="https://instagram.com" target="_blank"> {instagram}</a></p>
-                          <p className="ms-2"><a href="https://linkedin.com" target="_blank"> {linkedin}</a></p>
+                          <p  className="ms-5"><a href="https://google.com" target="_blank" rel="noreferrer"> {google}</a></p>
+                          <p className="ms-2"><a href="https://facebook.com" target="_blank" rel="noreferrer"> {facebook}</a></p>
+                          <p className="ms-2"><a href="https://instagram.com" target="_blank" rel="noreferrer"> {instagram}</a></p>
+                          <p className="ms-2"><a href="https://linkedin.com" target="_blank" rel="noreferrer"> {linkedin}</a></p>
                           </div>
                         </div>
                     </Col>
@@ -58,7 +58,7 @@ const Footer = () => {
                         <p className="text-white"> (102) 6666 8888</p>
                         <p className="text-white">info@demo.com</p>
                         <p className="text-white">(102) 8888 9999</p>
-                        <p className="text-white"><img className="ms-5" src={payment} /></p>
+                        <p className="text-white"><img className="ms-5" src={payment} alt="payment" /></p>
                     </Col>
                     <hr className="w-100 text-white border border-1 mt-4" />
                     <p className="text-white">Copyright &copy; 2021-{currentYear} Garcia. All Right Reserved.Made with ❤️ by Hasibul Polok 🔥</p>

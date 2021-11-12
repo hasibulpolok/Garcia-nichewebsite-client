@@ -1,12 +1,9 @@
-import Button from '@restart/ui/esm/Button';
 import React from 'react';
-import { Card, Col } from 'react-bootstrap';
-
-const Product = ({ product }) => {
-    const { title,desc,price, img } = product;
+import { Card, Col,Button } from 'react-bootstrap';
+const ExploreProduct = ({product}) => {
+    const { title, desc, price, img } = product;
     return (
-        <>
-            <Col sm={12} md={4}>
+        <Col sm={12} md={4}>
                 <Card  className="border-0">
                     <Card.Img variant="top" src={img} alt="product" />
                     <Card.Body>
@@ -21,9 +18,7 @@ const Product = ({ product }) => {
                     </Card.Body>
                 </Card>
             </Col>
-
-        </>
     );
 };
 
-export default Product;
+export default ExploreProduct;

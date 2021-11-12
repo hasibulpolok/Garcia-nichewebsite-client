@@ -5,7 +5,7 @@ import Rating from 'react-rating';
 
 const Reviews = () => {
     return (
-        <Carousel>
+        <Carousel className="mt-4">
 
 
             <Carousel.Item >
