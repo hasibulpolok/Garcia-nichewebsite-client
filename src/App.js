@@ -11,7 +11,7 @@ import Dashboard from './Routes/Dashboard/Dashboard/Dashboard';
 import NotFound from './Routes/NotFound/NotFound';
 import AddProduct from './Routes/Dashboard/AddProduct/AddProduct';
 import AllProducts from './Routes/Dashboard/AllProducts/AllProducts';
-import MyOrder from './Routes/Dashboard/MyOrders/MyOrder';
+import MyOrder from './Routes/Dashboard/MyOrders/MyOrders';
 import AllOrder from './Routes/Dashboard/AllOrders/AllOrder';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './Routes/Members/PrivateRoute/PrivateRoute';

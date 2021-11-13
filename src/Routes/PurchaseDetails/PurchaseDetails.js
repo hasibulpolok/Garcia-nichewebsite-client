@@ -3,9 +3,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Card, Container, Button, Row, Col, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase';
+
 const PurchaseDetails = () => {
     const { id } = useParams();
     const { user } = useFirebase()
+  
 
     const nameRef = useRef();
     const addressRef = useRef();
@@ -80,6 +82,7 @@ const PurchaseDetails = () => {
                                     <Card.Text>
                                         <p>{desc}</p>
                                     </Card.Text>
+                                  
                                 </Card.Body>
                                 <Button className=" mt-2 btn btn-primary rounded"><Link className="text-white text-decoration-none" to="/places">Back To Places</Link></Button>
                             </Card>

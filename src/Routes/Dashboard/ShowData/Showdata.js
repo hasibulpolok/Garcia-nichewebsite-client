@@ -4,7 +4,7 @@ import AddAdmin from '../AddAdmin/AddAdmin';
 import AddProduct from '../AddProduct/AddProduct';
 import AllOrder from '../AllOrders/AllOrder';
 import AllProducts from '../AllProducts/AllProducts';
-import MyOrder from '../MyOrders/MyOrder';
+import MyOrder from '../MyOrders/MyOrders';
 import Reviews from '../Reviews/Reviews';
 
 const Showdata = () => {
