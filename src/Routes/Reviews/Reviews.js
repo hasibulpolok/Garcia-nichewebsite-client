@@ -1,86 +1,35 @@
-import React from 'react';
-import { Carousel } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Carousel, Container, Row } from 'react-bootstrap';
 
 import Rating from 'react-rating';
+import Review from '../Review/Review';
 
 const Reviews = () => {
+
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        fetch('https://blooming-meadow-45048.herokuapp.com/reviews')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
     return (
-        <Carousel className="mt-4">
+        <div>
+            <Container>
+                <h2 className="text-center display-3">Reviews</h2>
+                <Row>
 
 
-            <Carousel.Item >
-                <div className="d-flex flex-column align-items-center">
-                    <img
-                        className="d-block rounded-circle "
-                        width='50'
-                        height='50'
-
-                        src="https://jssors8.azureedge.net/demos/image-slider/img/px-fun-man-person-2361598-image.jpg"
-                        alt="Third slide"
-                    />
-                </div>
 
 
-                <div className="text-center">
-                    <h3>Professor</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    <Rating
-                        emptySymbol={<img src="https://dreyescat.github.io/react-rating/assets/images/star-empty.png" alt="empty-rating" className="icon" />}
-                        fullSymbol={<img src="https://dreyescat.github.io/react-rating/assets/images/star-full.png" alt="rating" className="icon" />}
-                        initialRating={5}
-                        readonly
-                    />
-                </div>
-            </Carousel.Item>
-            <Carousel.Item >
-                <div className="d-flex flex-column align-items-center">
-                    <img
-                        className="d-block rounded-circle "
-                        width='50'
-                        height='50'
-
-                        src="https://jssors8.azureedge.net/demos/image-slider/img/px-fun-man-person-2361598-image.jpg"
-                        alt="Third slide"
-                    />
-                </div>
+                    {
+                        reviews.map(rev => <Review rev={rev}></Review>)
+                    }
 
 
-                <div className="text-center">
-                    <h3>Tokyo</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    <Rating
-                        emptySymbol={<img src="https://dreyescat.github.io/react-rating/assets/images/star-empty.png" alt="empty-rating" className="icon" />}
-                        fullSymbol={<img src="https://dreyescat.github.io/react-rating/assets/images/star-full.png" alt="rating" className="icon" />}
-                        initialRating={3}
-                        readonly
-                    />
-                </div>
-            </Carousel.Item>
-            <Carousel.Item >
-                <div className="d-flex flex-column align-items-center">
-                    <img
-                        className="d-block rounded-circle "
-                        width='50'
-                        height='50'
-
-                        src="https://jssors8.azureedge.net/demos/image-slider/img/px-fun-man-person-2361598-image.jpg"
-                        alt="Third slide"
-                    />
-                </div>
-
-
-                <div className="text-center">
-                    <h3>Helsenki</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    <Rating
-                        emptySymbol={<img src="https://dreyescat.github.io/react-rating/assets/images/star-empty.png" alt="rating-empty" className="icon" />}
-                        fullSymbol={<img src="https://dreyescat.github.io/react-rating/assets/images/star-full.png" alt="rating" className="icon" />}
-                        initialRating={4}
-                        readonly
-                    />
-                </div>
-            </Carousel.Item>
-        </Carousel>
+                </Row>
+            </Container>
+        </div>
     );
 };
 

@@ -4,8 +4,9 @@ import AddAdmin from '../AddAdmin/AddAdmin';
 import AddProduct from '../AddProduct/AddProduct';
 import AllOrder from '../AllOrders/AllOrder';
 import AllProducts from '../AllProducts/AllProducts';
+import DashReview from '../DashReview/DashReview';
 import MyOrder from '../MyOrders/MyOrders';
-import Reviews from '../Reviews/Reviews';
+
 
 const Showdata = () => {
     let { topicId } = useParams();
@@ -16,7 +17,7 @@ const Showdata = () => {
            {topicId === 'allproducts' ? <AllProducts/> :''}
            {topicId === 'myorders' ? <MyOrder/> :''}
            {topicId === 'allorders' ? <AllOrder/> :''}
-           {topicId === 'reviews' ? <Reviews/> :''}
+           {topicId === 'reviews' ? <DashReview/> :''}
            {topicId === 'addadmin' ? <AddAdmin/> :''}
         </>
     );
