@@ -1,7 +1,16 @@
 import React from 'react';
 import { Card, Col,Button } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 const ExploreProduct = ({product}) => {
-    const { title, desc, price, img } = product;
+    const { title, desc, price, img,_id } = product;
+    const history = useHistory();
+
+    const handledetails = (detailsid) => {
+        const uri = `/detailspurchase/${detailsid}`;
+        // console.log(uri);
+        history.push(uri)
+    }
+
     return (
         <Col sm={12} md={4}>
                 <Card  className="border-0">
@@ -13,7 +22,9 @@ const ExploreProduct = ({product}) => {
                         </Card.Text>
                         <h5>Price: {price} $</h5>
                         <div className="text-end">
-                            <Button className="btn btn-outline-dark " variant="primary">Purchase</Button>
+                            <Button onClick={() =>
+                            handledetails(_id)
+                        } className="btn btn-outline-dark " variant="primary">Purchase</Button>
                         </div>
                     </Card.Body>
                 </Card>
