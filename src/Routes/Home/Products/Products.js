@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import Product from '../Product/Product';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
-
+    const { admin } = useAuth();
+    console.log(admin);
     useEffect(() => {
         fetch('https://blooming-meadow-45048.herokuapp.com/products')
             .then(res => res.json())

@@ -1,10 +1,8 @@
 import React from 'react';
 import { Card, Col,Button } from 'react-bootstrap';
 
-
-const MyOrder = ({orders}) => {
-    const { Title, Image, Description, Price, Name, Address, Phone, _id } = orders;
-
+const Order = ({ order }) => {
+    const { Title, Image, Description, Price, Name, Address, Phone, _id } = order;
 
     const handledeletebooking = id => {
         const decision = window.confirm("Are you sure want to delete ?")
@@ -23,7 +21,6 @@ const MyOrder = ({orders}) => {
                 })
         }
     }
-
     return (
         <Col sm={12} md={4}>
             <Card className="border-0">
@@ -53,4 +50,4 @@ const MyOrder = ({orders}) => {
     );
 };
 
-export default MyOrder;
+export default Order;

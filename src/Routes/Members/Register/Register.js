@@ -9,14 +9,17 @@ const Register = () => {
 
     const location = useLocation();
 
-    const { photoURL,updateName, email, password, name, sigInUsingGoogle, handleEmailChange, handlePasswordChange, handleRegistration, handleNameChange, setIsLoading } = useAuth();
+    const { photoURL, updateName, email, password, name, sigInUsingGoogle, handleEmailChange, handlePasswordChange, handleRegistration, handleNameChange, setIsLoading, saveuser } = useAuth();
     const uri = location.state?.from || '/home';
     const history = useHistory();
 
     const gtosignin = () => {
         sigInUsingGoogle().then(result => {
+            const user = result.user;
             setIsLoading(true);
+            saveuser(user.email, '123456', user.displayName, user.photoURL,"PUT")
             history.push(uri)
+
         })
             .finally(() => {
                 setIsLoading(false);
@@ -24,9 +27,10 @@ const Register = () => {
     }
 
     const registerwithmail = (e) => {
-        handleRegistration(email, password,name,photoURL).then(result => {
+        handleRegistration(email, password, name, photoURL).then(result => {
             setIsLoading(true);
             updateName(name);
+            saveuser(email, password, name, photoURL,"POST")
             const user = result.user;
             history.push(uri);
         })
@@ -36,11 +40,11 @@ const Register = () => {
         e.preventDefault();
     }
 
- 
+
     return (
         <div className="m-5">
 
-<Container>
+            <Container>
                 <h5 className="text-center display-3 border border-2 display-5 pb-2">Register Please</h5>
                 <div className="w-100 py-5 mb-5">
                     <div className="w-50 mx-auto">

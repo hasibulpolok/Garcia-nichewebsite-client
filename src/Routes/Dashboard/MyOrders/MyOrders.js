@@ -7,11 +7,11 @@ const MyOrders = () => {
     const { user } = useAuth()
     const [myorders, setMyorders] = useState([]);
     useEffect(() => {
-        fetch(`https://blooming-meadow-45048.herokuapp.com//book/${user.email}`)
+        fetch(`https://blooming-meadow-45048.herokuapp.com/book/${user.email}`)
             .then(res => res.json())
             .then(data => setMyorders(data))
     }, [])
-    console.log(myorders);
+ 
     return (
         <div>
             <h3 className="text-center display-3">My orders {myorders.length}</h3>

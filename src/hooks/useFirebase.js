@@ -11,6 +11,7 @@ const useFirebase = () => {
 
 
 
+    const [admin, setAdmin] = useState({});
     const [user, setUser] = useState({});
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -84,7 +85,26 @@ const useFirebase = () => {
         });
     }
 
+    useEffect(() => {
+        fetch(`https://blooming-meadow-45048.herokuapp.com/user/admin/${user.email}`)
+          .then((res) => res.json())
+          .then((data) => setAdmin(data.admin));
+      }, [user.email]);
+
+
+    // save user to database 
+    const saveuser = (email, password, username, photo, methods) => {
+        const data = { email, password, username, photo }
+        fetch('https://blooming-meadow-45048.herokuapp.com/users/res', {
+            method: methods,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then()
+    }
     return {
+        admin,
         user,
         sigInUsingGoogle,
         logOut,
@@ -100,7 +120,7 @@ const useFirebase = () => {
         name,
         updateName,
         photoURL,
-
+        saveuser
     }
 }
 

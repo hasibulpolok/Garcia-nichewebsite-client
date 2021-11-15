@@ -17,6 +17,7 @@ import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './Routes/Members/PrivateRoute/PrivateRoute';
 import ExploreProducts from './Routes/Home/ExploreProducts/ExploreProducts';
 import PurchaseDetails from './Routes/PurchaseDetails/PurchaseDetails';
+import AdminRoute from './Routes/Dashboard/AdminRoute/AdminRoute';
 
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
            <ExploreProducts></ExploreProducts>
           </Route>
           <PrivateRoute exact path="/detailspurchase/:id">
-              <PurchaseDetails></PurchaseDetails>>
+              <PurchaseDetails></PurchaseDetails>
             </PrivateRoute>
           <PrivateRoute path="/dashboard">
             <Dashboard></Dashboard>
@@ -55,9 +56,9 @@ function App() {
           <Route path="/addproducts">
             <AddProduct></AddProduct>
           </Route>
-          <Route path="/allproducts">
+          {/* <Route path="/allproducts">
             <AllProducts></AllProducts>
-          </Route>
+          </Route> */}
           <PrivateRoute path="/myorders">
             <MyOrder></MyOrder>
           </PrivateRoute>

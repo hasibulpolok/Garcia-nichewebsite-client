@@ -8,7 +8,7 @@ import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
     const location = useLocation();
-    const { sigInUsingGoogle, handleSignIn, handleEmailChange, handlePasswordChange, setUser,setIsLoading } = useAuth();
+    const { sigInUsingGoogle, handleSignIn, handleEmailChange, handlePasswordChange, setUser,setIsLoading,saveuser } = useAuth();
     const uri = location.state?.from || '/home';
     const history = useHistory();
     // const [loginData,setLoginData] = useState({});
@@ -16,6 +16,8 @@ const Login = () => {
     const gtosignin = () => {
         sigInUsingGoogle().then(result => {
             setIsLoading(true);
+            const user = result.user;
+            saveuser(user.email, '123456', user.displayName, user.photoURL,"PUT")
             history.push(uri)
         })
             .finally(() => {
