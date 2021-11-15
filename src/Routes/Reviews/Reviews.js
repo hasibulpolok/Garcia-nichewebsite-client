@@ -23,7 +23,7 @@ const Reviews = () => {
 
 
                     {
-                        reviews.map(rev => <Review rev={rev}></Review>)
+                        reviews.map(rev => <Review key={rev._id} rev={rev}></Review>)
                     }
 
 

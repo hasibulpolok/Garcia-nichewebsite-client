@@ -2,18 +2,18 @@ import { useParams } from 'react-router-dom';
 import React, { useEffect, useRef, useState } from 'react';
 import { Card, Container, Button, Row, Col, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
 
 const PurchaseDetails = () => {
     const { id } = useParams();
-    const { user } = useFirebase()
-  
+    const { user } = useAuth();
+
 
     const nameRef = useRef();
     const addressRef = useRef();
     const phoneRef = useRef();
 
-
+    console.log(user);
     const [details, setDetails] = useState([]);
     const [singledetails, setSingledetails] = useState({});
     const { title, desc, img, price } = singledetails;
@@ -82,7 +82,7 @@ const PurchaseDetails = () => {
                                     <Card.Text>
                                         <p>{desc}</p>
                                     </Card.Text>
-                                  
+
                                 </Card.Body>
                                 <Button className=" mt-2 btn btn-primary rounded"><Link className="text-white text-decoration-none" to="/places">Back To Places</Link></Button>
                             </Card>
@@ -91,11 +91,12 @@ const PurchaseDetails = () => {
                             <Form>
                                 <Form.Group className="mb-3  " controlId="formGroup">
                                     <Form.Label>Your Name</Form.Label>
-                                    <Form.Control className=" " ref={nameRef} type="text" placeholder="name" required/>
+                                
+                                    <Form.Control className=" " ref={nameRef} type="text" placeholder="name" required />
                                 </Form.Group>
                                 <Form.Group className="mb-3 " controlId="formGroup">
                                     <Form.Label>Address</Form.Label>
-                                    <Form.Control className="py-2" ref={addressRef} type="text" placeholder="Address" required/>
+                                    <Form.Control className="py-2" ref={addressRef} type="text" placeholder="Address" required />
                                 </Form.Group>
                                 <Form.Group className="mb-3 " controlId="formGroup">
                                     <Form.Label>Phone</Form.Label>
