@@ -90,6 +90,11 @@ const PurchaseDetails = () => {
                         <Col sm={12} md={6}>
                             <Form>
                                 <Form.Group className="mb-3  " controlId="formGroup">
+                                    <Form.Label>User Email</Form.Label>
+                                
+                                    <Form.Control className=" " type="text" value={user.email} required />
+                                </Form.Group>
+                                <Form.Group className="mb-3  " controlId="formGroup">
                                     <Form.Label>Your Name</Form.Label>
                                 
                                     <Form.Control className=" " ref={nameRef} type="text" placeholder="name" required />

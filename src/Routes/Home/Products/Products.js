@@ -23,7 +23,7 @@ const Products = () => {
                         key={product._id}
                         product={product}></Product>).slice(0, 6)}
                     <div className="text-center display-3  border border-2 border-bg-light pb-2">
-                        <Button className="btn btn-outline-white mb-1" variant="dark"><Link className="text-decoration-none text-white" to='exploreproducts'>Exploare All Products</Link></Button>
+                        <Button className="btn btn-outline-white mb-1" variant="dark"><Link className="text-decoration-none text-white" to='/exploreproducts'>Exploare All Products</Link></Button>
                     </div>
                 </Row>
             </Container>

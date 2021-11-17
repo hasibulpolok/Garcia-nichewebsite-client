@@ -41,11 +41,12 @@ const DashReview = () => {
     return (
         <Form className="w-100 " onSubmit={handlereview}>
             <Form.Group className="mb-3" controlId="describtion">
-                <Form.Label>Select Star Out Of 5 </Form.Label>
+                <Form.Label>Select Stars </Form.Label>
                 <br />
                 <Rating
                     emptySymbol={
-                        <img
+                        <img width="30px"
+                        
                             src={emptystar}
                             className="icon"
                             alt="empty start"
@@ -53,6 +54,7 @@ const DashReview = () => {
                     }
                     fullSymbol={
                         <img
+                        width="30px"
                             src={fullstar}
                             className="icon"
                             alt="empty start"
@@ -61,9 +63,9 @@ const DashReview = () => {
                     ref={rating}
                 />
             </Form.Group>
-            <Form.Group className="mb-3 " controlId="description">
-                <Form.Label>Your Openion</Form.Label>
-                <Form.Control as="textarea" rows={3} id="description" ref={review} />
+            <Form.Group className="mb-3 " controlId="feedback">
+                <Form.Label>Your Feedback !</Form.Label>
+                <Form.Control as="textarea" rows={3} id="feedback" placeholder="Your FeedBack Here" ref={review} />
             </Form.Group>
             <Button variant="dark" className="w-100" type="submit">
                 Add Review
